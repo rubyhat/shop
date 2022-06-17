@@ -5,16 +5,20 @@ class ApiError extends Error {
     this.message = message;
   }
 
-  static badRequest(message) {
-    return new ApiError(404, message);
-  }
-
   static iternal(message) {
     return new ApiError(500, message);
   }
 
+  static badRequest(message) {
+    return new ApiError(404, message);
+  }
+
   static forbidden(message) {
     return new ApiError(403, message);
+  }
+
+  static noAuth(message) {
+    return new ApiError(401, message);
   }
 }
 
