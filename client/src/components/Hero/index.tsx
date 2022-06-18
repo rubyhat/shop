@@ -3,6 +3,7 @@ import { Container, Row, Col } from "../Helpers/Layout";
 
 import CardInfo from "../Helpers/CardInfo";
 import avatar from "../../assets/images/avatar.svg";
+import ShopSection from "../ShopSection";
 
 const Hero = () => {
   return (
@@ -39,6 +40,11 @@ const Hero = () => {
                 <span style={{ color: "#86868b", fontWeight: "700" }}>3</span>
               </p>
             </CardInfo>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <ShopSection title="Игровые компьютеры" itemCount={119} link="/" />
           </Col>
         </Row>
       </Container>

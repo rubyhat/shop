@@ -1,0 +1,61 @@
+.card-shop {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 870px;
+  padding: 1.5rem;
+  margin-top: 1rem;
+  cursor: pointer;
+  transition: all 333ms ease;
+
+  &:hover {
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.image {
+  margin-right: 2rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 1.5rem;
+}
+
+.price {
+  font-size: 1.1rem;
+  color: var(--accent);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-height: 140px;
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  margin-top: 0.75rem;
+}
+
+.item-icon {
+  margin-right: 0.5rem;
+}
+
+.item-type {
+  font-size: 0.75rem;
+  color: var(--grey);
+}
+
+.item-title {
+  font-size: 0.875rem;
+  color: var(--dark);
+  font-weight: 700;
+}

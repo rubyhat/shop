@@ -1,0 +1,40 @@
+.title-box {
+  display: flex;
+  align-items: center;
+  a {
+    font-size: 0.875rem;
+  }
+}
+
+.title {
+  font-size: 1.5rem;
+  margin-right: 1rem;
+}
+
+.count {
+  color: var(--grey);
+}
+
+.filter {
+  display: flex;
+  align-items: center;
+  font-size: 0.875rem;
+  font-weight: 700;
+  padding-top: 0.5rem;
+  padding-bottom: 1rem;
+}
+
+.filter-item {
+  padding: 0.25rem;
+  color: var(--grey);
+  margin-right: 1rem;
+  cursor: pointer;
+  transition: all 333ms ease;
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.filter-active {
+  color: var(--accent);
+}
