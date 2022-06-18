@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row } from "../Helpers/Layout";
 import classNames from "classnames/bind";
 
 import styles from "./styles.module.scss";
@@ -13,7 +13,7 @@ const SubHeader = () => {
           <Col>
             <div className="d-flex align-items-center justify-content-between">
               <p>Караганда</p>
-              <p>+7 (701) 123 45 67 (с 9:00 до 18:00)</p>
+              <p>+7 (701) 123 45 67 | с 9:00 до 18:00</p>
             </div>
           </Col>
         </Row>

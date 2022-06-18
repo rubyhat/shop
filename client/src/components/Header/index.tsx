@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row } from "../Helpers/Layout";
 import classNames from "classnames/bind";
 
 import styles from "./styles.module.scss";
@@ -16,14 +16,12 @@ const Header = () => {
     <header className={cx("header")}>
       <Container>
         <Row>
-          <Col xs={6} md={3}>
+          <Col>
             <div className={cx("image-wrap")}>
               <img onClick={() => navigate("/")} src={logo} alt="logotype" />
             </div>
           </Col>
-          <Col xs={6} md={9}>
-            {isMobile ? <div>burger</div> : <Nav />}
-          </Col>
+          <Col>{isMobile ? <div>burger</div> : <Nav />}</Col>
         </Row>
       </Container>
     </header>
