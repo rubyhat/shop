@@ -3,8 +3,9 @@ import classNames from "classnames/bind";
 import styles from "./styles.module.scss";
 
 const Col = (props: any) => {
+  const { className } = props;
   const cx = classNames.bind(styles);
-  return <div className={cx("col")}>{props.children}</div>;
+  return <div className={cx("col") + " " + className}>{props.children}</div>;
 };
 
 export default Col;

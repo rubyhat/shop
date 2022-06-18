@@ -1,0 +1,25 @@
+.footer {
+  padding: 1.5rem 0;
+  border-top: 2px solid var(--light-grey);
+}
+
+.content {
+  display: flex;
+}
+
+.logotype {
+  display: block;
+}
+
+.links {
+  padding-left: 2rem;
+  display: flex;
+  align-items: center;
+  font-size: 0.875rem;
+  li {
+    margin-right: 1rem;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
