@@ -10,7 +10,11 @@ const links = [
   { href: "/", title: "Войти", order: 4, isButton: true },
 ];
 
-const Nav = () => {
+interface NavProps {
+  setShowModal: (showModal: boolean) => void;
+}
+
+const Nav = ({ setShowModal }: NavProps) => {
   const cx = classNames.bind(styles);
   return (
     <nav className={cx("nav")}>
@@ -18,6 +22,7 @@ const Nav = () => {
         .sort((a, b) => a.order - b.order)
         .map((link) => (
           <Link
+            onClick={() => link.isButton && setShowModal(true)}
             to={link.href}
             key={link.order}
             className={
