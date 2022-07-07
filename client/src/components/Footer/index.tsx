@@ -6,14 +6,14 @@ import logotype from "../../assets/images/logotype.svg";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
-  const cx = classNames.bind(styles);
+  const cn = classNames.bind(styles);
   return (
-    <footer className={cx("footer")}>
+    <footer className={cn("footer")}>
       <Container>
         <Row>
-          <Col className={cx("content")}>
-            <img src={logotype} alt="logotype" className={cx("logotype")} />
-            <ul className={cx("links")}>
+          <Col className={cn("content")}>
+            <img src={logotype} alt="logotype" className={cn("logotype")} />
+            <ul className={cn("links")}>
               <li>
                 <Link className="link" to="/">
                   Политика конфиденциальности

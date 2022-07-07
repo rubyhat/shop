@@ -1,0 +1,46 @@
+.input {
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+}
+
+.label {
+  position: absolute;
+  left: 6px;
+  top: -5px;
+  font-size: 10px;
+  line-height: 12px;
+  text-transform: uppercase;
+  padding: 0 4px;
+  color: var(--black-50);
+  background-color: var(--white);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 333ms ease;
+}
+
+.label_active {
+  opacity: inherit;
+}
+
+.input__field {
+  width: 100%;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 10px 12px;
+  border-radius: 2px;
+  border: 1px solid var(--black-20);
+  color: var(--black-75);
+  transition: all 333ms ease;
+  &::placeholder {
+    color: var(--black-50);
+    text-transform: uppercase;
+  }
+  &:hover {
+    border-color: var(--black-50);
+  }
+  &:focus {
+    border-color: var(--black-75);
+    outline: none;
+  }
+}

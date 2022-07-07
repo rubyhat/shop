@@ -14,15 +14,16 @@ interface ModalProps {
 const Modal = ({ children, className }: ModalProps) => {
   const el = useRef(document.createElement("div"));
   const modal = useRef(document.createElement("div"));
-  const cx = classNames.bind(styles);
 
   useEffect(() => {
+    const cn = classNames.bind(styles);
     const current = el.current;
     const currentModal = modal.current;
     const arr = className.split(" ");
 
-    arr.push(cx("modal"));
-    current.classList.add(cx("modal-wrap"));
+    arr.push(cn("modal"));
+    current.classList.add(cn("modal-wrap"));
+    current.dataset.modal = "wrap";
     currentModal.classList.add(...arr);
     current.appendChild(currentModal);
 

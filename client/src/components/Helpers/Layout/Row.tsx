@@ -4,8 +4,8 @@ import styles from "./styles.module.scss";
 
 const Row = (props: any) => {
   const { className } = props;
-  const cx = classNames.bind(styles);
-  return <div className={cx("row") + " " + className}>{props.children}</div>;
+  const cn = classNames.bind(styles);
+  return <div className={cn("row") + " " + className}>{props.children}</div>;
 };
 
 export default Row;

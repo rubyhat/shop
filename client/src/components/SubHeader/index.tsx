@@ -5,9 +5,9 @@ import classNames from "classnames/bind";
 import styles from "./styles.module.scss";
 
 const SubHeader = () => {
-  const cx = classNames.bind(styles);
+  const cn = classNames.bind(styles);
   return (
-    <div className={cx("sub-header")}>
+    <div className={cn("sub-header")}>
       <Container>
         <Row>
           <Col>

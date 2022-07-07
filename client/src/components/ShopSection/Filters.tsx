@@ -17,7 +17,7 @@ interface filter {
 }
 
 const Filters = () => {
-  const cx = classNames.bind(styles);
+  const cn = classNames.bind(styles);
   const [filters, setFilters] = useState(filterItems);
 
   const handleClick = (filter: filter) => {
@@ -41,14 +41,14 @@ const Filters = () => {
   };
 
   return (
-    <ul className={cx("filter")}>
+    <ul className={cn("filter")}>
       {filters
         .sort((a, b) => a.order - b.order)
         .map((filter) => (
           <li
             onClick={() => handleClick(filter)}
             key={filter.order}
-            className={cx(
+            className={cn(
               filter.isActive ? ["filter-item", "filter-active"] : "filter-item"
             )}
           >

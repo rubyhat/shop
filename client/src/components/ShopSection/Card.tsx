@@ -8,62 +8,62 @@ import { iCase } from "../Helpers/Icons";
 import { useNavigate } from "react-router-dom";
 
 const Card = () => {
-  const cx = classNames.bind(styles);
+  const cn = classNames.bind(styles);
   const navigate = useNavigate();
   return (
-    <div className={cx("card", "card-shop")} onClick={() => navigate("/")}>
+    <div className={cn("card", "card-shop")} onClick={() => navigate("/")}>
       <img
-        className={cx("image")}
+        className={cn("image")}
         src={tempImgX1}
         srcSet={tempImgX2 + " 2x"}
         alt="computer"
       />
-      <div className={cx("content")}>
-        <div className={cx("header")}>
-          <h4 className={cx("title")}>SKILLSTORM Venera S</h4>
-          <strong className={cx("price")}>600 000 ₸</strong>
+      <div className={cn("content")}>
+        <div className={cn("header")}>
+          <h4 className={cn("title")}>SKILLSTORM Venera S</h4>
+          <strong className={cn("price")}>600 000 ₸</strong>
         </div>
-        <ul className={cx("list")}>
-          <li className={cx("list-item")}>
-            <img className={cx("item-icon")} src={iCase} alt="shop-icon" />
-            <div className={cx("list-item-content")}>
-              <p className={cx("item-type")}>Процессор</p>
-              <p className={cx("item-title")}>Intel Core i5-12600KF 3700 МГц</p>
+        <ul className={cn("list")}>
+          <li className={cn("list-item")}>
+            <img className={cn("item-icon")} src={iCase} alt="shop-icon" />
+            <div className={cn("list-item-content")}>
+              <p className={cn("item-type")}>Процессор</p>
+              <p className={cn("item-title")}>Intel Core i5-12600KF 3700 МГц</p>
             </div>
           </li>
-          <li className={cx("list-item")}>
-            <img className={cx("item-icon")} src={iCase} alt="shop-icon" />
-            <div className={cx("list-item-content")}>
-              <p className={cx("item-type")}>Процессор</p>
-              <p className={cx("item-title")}>Intel Core i5-12600KF 3700 МГц</p>
+          <li className={cn("list-item")}>
+            <img className={cn("item-icon")} src={iCase} alt="shop-icon" />
+            <div className={cn("list-item-content")}>
+              <p className={cn("item-type")}>Процессор</p>
+              <p className={cn("item-title")}>Intel Core i5-12600KF 3700 МГц</p>
             </div>
           </li>
-          <li className={cx("list-item")}>
-            <img className={cx("item-icon")} src={iCase} alt="shop-icon" />
-            <div className={cx("list-item-content")}>
-              <p className={cx("item-type")}>Процессор</p>
-              <p className={cx("item-title")}>Intel Core i5-12600KF 3700 МГц</p>
+          <li className={cn("list-item")}>
+            <img className={cn("item-icon")} src={iCase} alt="shop-icon" />
+            <div className={cn("list-item-content")}>
+              <p className={cn("item-type")}>Процессор</p>
+              <p className={cn("item-title")}>Intel Core i5-12600KF 3700 МГц</p>
             </div>
           </li>
-          <li className={cx("list-item")}>
-            <img className={cx("item-icon")} src={iCase} alt="shop-icon" />
-            <div className={cx("list-item-content")}>
-              <p className={cx("item-type")}>Процессор</p>
-              <p className={cx("item-title")}>Intel Core i5-12600KF 3700 МГц</p>
+          <li className={cn("list-item")}>
+            <img className={cn("item-icon")} src={iCase} alt="shop-icon" />
+            <div className={cn("list-item-content")}>
+              <p className={cn("item-type")}>Процессор</p>
+              <p className={cn("item-title")}>Intel Core i5-12600KF 3700 МГц</p>
             </div>
           </li>
-          <li className={cx("list-item")}>
-            <img className={cx("item-icon")} src={iCase} alt="shop-icon" />
-            <div className={cx("list-item-content")}>
-              <p className={cx("item-type")}>Процессор</p>
-              <p className={cx("item-title")}>Intel Core i5-12600KF 3700 МГц</p>
+          <li className={cn("list-item")}>
+            <img className={cn("item-icon")} src={iCase} alt="shop-icon" />
+            <div className={cn("list-item-content")}>
+              <p className={cn("item-type")}>Процессор</p>
+              <p className={cn("item-title")}>Intel Core i5-12600KF 3700 МГц</p>
             </div>
           </li>
-          <li className={cx("list-item")}>
-            <img className={cx("item-icon")} src={iCase} alt="shop-icon" />
-            <div className={cx("list-item-content")}>
-              <p className={cx("item-type")}>Процессор</p>
-              <p className={cx("item-title")}>Intel Core i5-12600KF 3700 МГц</p>
+          <li className={cn("list-item")}>
+            <img className={cn("item-icon")} src={iCase} alt="shop-icon" />
+            <div className={cn("list-item-content")}>
+              <p className={cn("item-type")}>Процессор</p>
+              <p className={cn("item-title")}>Intel Core i5-12600KF 3700 МГц</p>
             </div>
           </li>
         </ul>

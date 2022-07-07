@@ -7,20 +7,21 @@ import styles from "./styles.module.scss";
 import logo from "../../assets/images/logotype.svg";
 import Nav from "./Nav";
 import Modal from "../Helpers/Modal";
+import ModalAuth from "./ModalAuth";
 
 const Header = () => {
-  const cx = classNames.bind(styles);
+  const cn = classNames.bind(styles);
   const navigate = useNavigate();
   const isMobile = window.matchMedia("(max-width: 768px)").matches;
 
   const [showModal, setShowModal] = useState(false);
 
   return (
-    <header className={cx("header")}>
+    <header className={cn("header")}>
       <Container>
         <Row>
           <Col>
-            <div className={cx("image-wrap")}>
+            <div className={cn("image-wrap")}>
               <img onClick={() => navigate("/")} src={logo} alt="logotype" />
             </div>
           </Col>
@@ -30,9 +31,8 @@ const Header = () => {
         </Row>
       </Container>
       {showModal && (
-        <Modal className={cx("modal__auth")}>
-          <div>hello modal</div>
-          <button onClick={() => setShowModal(false)}>close</button>
+        <Modal className={cn("modal__auth")}>
+          <ModalAuth setShowModal={setShowModal} />
         </Modal>
       )}
     </header>

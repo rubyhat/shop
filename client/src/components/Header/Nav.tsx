@@ -15,9 +15,9 @@ interface NavProps {
 }
 
 const Nav = ({ setShowModal }: NavProps) => {
-  const cx = classNames.bind(styles);
+  const cn = classNames.bind(styles);
   return (
-    <nav className={cx("nav")}>
+    <nav className={cn("nav")}>
       {links
         .sort((a, b) => a.order - b.order)
         .map((link) => (

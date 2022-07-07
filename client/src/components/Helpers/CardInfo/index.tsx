@@ -16,16 +16,16 @@ const CardInfo: FC<ICardInfo> = (props) => {
     image,
     children,
   } = props;
-  const cx = classNames.bind(styles);
+  const cn = classNames.bind(styles);
   return (
-    <div className={cx("card", "card-info")}>
-      <div className={cx("content")}>
-        <h5 className={cx("title")}>{title}</h5>
-        <div className={cx("children")}>
-          {text && <p className={cx("text")}>{text}</p>}
+    <div className={cn("card", "card-info")}>
+      <div className={cn("content")}>
+        <h5 className={cn("title")}>{title}</h5>
+        <div className={cn("children")}>
+          {text && <p className={cn("text")}>{text}</p>}
           {children && children}
         </div>
-        <div className={cx("links")}>
+        <div className={cn("links")}>
           <Link className="link" to={link1_target}>
             {link1_text}
           </Link>
@@ -38,7 +38,7 @@ const CardInfo: FC<ICardInfo> = (props) => {
       </div>
       {image && (
         <div className="image-wrap">
-          <img className={cx("image")} src={image} alt="card-i" />
+          <img className={cn("image")} src={image} alt="card-i" />
         </div>
       )}
     </div>

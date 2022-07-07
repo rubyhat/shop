@@ -9,12 +9,12 @@ import Card from "./Card";
 
 const ShopSection: FC<IShopSection> = (props) => {
   const { title, itemCount, link, apiUrl } = props;
-  const cx = classNames.bind(styles);
+  const cn = classNames.bind(styles);
   return (
-    <section className={cx("shop-section")}>
-      <div className={cx("title-box")}>
-        <h2 className={cx("title")}>
-          {title} <strong className={cx("count")}>{itemCount}</strong>
+    <section className={cn("shop-section")}>
+      <div className={cn("title-box")}>
+        <h2 className={cn("title")}>
+          {title} <strong className={cn("count")}>{itemCount}</strong>
         </h2>
         <Link className="link" to={link}>
           Посмотреть все

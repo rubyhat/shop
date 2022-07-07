@@ -4,9 +4,9 @@ import styles from "./styles.module.scss";
 
 const Container = (props: any) => {
   const { className } = props;
-  const cx = classNames.bind(styles);
+  const cn = classNames.bind(styles);
   return (
-    <div className={cx("container") + " " + className}>{props.children}</div>
+    <div className={cn("container") + " " + className}>{props.children}</div>
   );
 };
 
