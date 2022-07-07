@@ -1,5 +1,6 @@
 import classNames from "classnames/bind";
 import { useState } from "react";
+import Button from "../Helpers/Button";
 import Input from "../Helpers/Input";
 import styles from "./modalAuth.module.scss";
 
@@ -46,7 +47,7 @@ const ModalAuth = ({ setShowModal }: ModalProps) => {
           setValue={setPassword}
         />
       </div>
-      <button type="submit">Войти</button>
+      <Button text="Войти" variant="primary" />
     </form>
   );
 };

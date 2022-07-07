@@ -10,7 +10,6 @@
   top: -5px;
   font-size: 10px;
   line-height: 12px;
-  text-transform: uppercase;
   padding: 0 4px;
   color: var(--black-50);
   background-color: var(--white);
@@ -33,14 +32,13 @@
   color: var(--black-75);
   transition: all 333ms ease;
   &::placeholder {
-    color: var(--black-50);
-    text-transform: uppercase;
+    color: var(--black-40);
   }
   &:hover {
-    border-color: var(--black-50);
+    border-color: var(--black-40);
   }
   &:focus {
-    border-color: var(--black-75);
+    border-color: var(--black-50);
     outline: none;
   }
 }

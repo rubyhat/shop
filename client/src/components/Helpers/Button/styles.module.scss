@@ -1,0 +1,48 @@
+.button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  position: relative;
+  padding: 10px 12px;
+  border: 1px solid var(--black-20);
+  border-radius: 2px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 160%;
+  cursor: pointer;
+  transition: all 333ms ease;
+
+  &:hover {
+    border: 1px solid var(--black-40);
+  }
+  &:active {
+    border: 1px solid var(--black-50);
+  }
+}
+
+.button__icon {
+  margin-right: 12px;
+}
+
+.button_primary {
+  color: var(--accent);
+  opacity: 0.9;
+  &:hover {
+    opacity: 0.8;
+  }
+  &:active {
+    opacity: 1;
+  }
+}
+
+.button_danger {
+  color: var(--red);
+  &:hover {
+    color: var(--red);
+  }
+  &:active {
+    color: var(--red);
+  }
+}
