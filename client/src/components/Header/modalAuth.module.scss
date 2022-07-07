@@ -32,3 +32,13 @@
     opacity: 0.9;
   }
 }
+
+.modal__link {
+  display: inline-block;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+.modal__error {
+  border-color: var(--red);
+}

@@ -20,6 +20,10 @@
   &:active {
     border: 1px solid var(--black-50);
   }
+  &:disabled {
+    opacity: 0.5;
+    cursor: progress;
+  }
 }
 
 .button__icon {
@@ -27,6 +31,19 @@
 }
 
 .button_primary {
+  background-color: var(--accent);
+  color: var(--white);
+  border-color: var(--accent);
+  opacity: 0.9;
+  &:hover {
+    opacity: 0.8;
+  }
+  &:active {
+    opacity: 1;
+  }
+}
+
+.button_outline {
   color: var(--accent);
   opacity: 0.9;
   &:hover {

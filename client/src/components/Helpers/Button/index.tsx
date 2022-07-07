@@ -12,6 +12,7 @@ interface IButton {
   onClick?: () => void;
   className?: string;
   type?: "submit" | "reset";
+  disabled?: boolean;
 }
 
 // const icons = {
@@ -30,7 +31,7 @@ interface IButton {
 // };
 
 const Button: FC<IButton> = (props) => {
-  const { text, variant, onClick, className, type } = props;
+  const { text, variant, onClick, className, type, disabled } = props;
   const cn = classNames.bind(styles);
 
   const rootClasses = className
@@ -40,6 +41,7 @@ const Button: FC<IButton> = (props) => {
 
   return (
     <button
+      disabled={disabled}
       type={type && type}
       onClick={onClick && onClick}
       className={cn(rootClasses)}

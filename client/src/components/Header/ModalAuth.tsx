@@ -1,5 +1,7 @@
 import classNames from "classnames/bind";
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import Alert from "../Helpers/Alert";
 import Button from "../Helpers/Button";
 import Input from "../Helpers/Input";
 import styles from "./modalAuth.module.scss";
@@ -12,10 +14,12 @@ const ModalAuth = ({ setShowModal }: ModalProps) => {
   const cn = classNames.bind(styles);
   const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setShowModal(false);
   };
 
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(false);
 
   return (
     <form
@@ -33,21 +37,33 @@ const ModalAuth = ({ setShowModal }: ModalProps) => {
       </div>
       <div className={cn("input-block")}>
         <Input
-          placeholder="Номер телефона"
-          label="Номер телефона"
+          className={error ? cn("modal__error") : ""}
+          placeholder="Логин"
+          label="Логин"
           value={login}
           setValue={setLogin}
         />
       </div>
       <div className={cn("input-block")}>
         <Input
+          className={error ? cn("modal__error") : ""}
           placeholder="Пароль"
           label="Пароль"
           value={password}
           setValue={setPassword}
         />
       </div>
-      <Button text="Войти" variant="primary" />
+      {error && (
+        <Alert variant="danger-outline">Неправильный логин или пароль</Alert>
+      )}
+      <Button disabled={false} text="Войти" variant="primary" />
+      <Link
+        onClick={() => setShowModal(false)}
+        className={cn("modal__link", "link")}
+        to="/"
+      >
+        Нет аккаунта?
+      </Link>
     </form>
   );
 };
