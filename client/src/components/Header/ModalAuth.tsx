@@ -1,3 +1,4 @@
+import axios, { HeadersDefaults } from "axios";
 import classNames from "classnames/bind";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -14,12 +15,32 @@ const ModalAuth = ({ setShowModal }: ModalProps) => {
   const cn = classNames.bind(styles);
   const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setShowModal(false);
+    axios({
+      url: "http://localhost:3001/api/user/login",
+      method: "POST",
+      data: { login, password },
+    })
+      .then((res) => {
+        interface CommonHeaderProperties extends HeadersDefaults {
+          Authorization: string;
+        }
+        axios.defaults.headers = {
+          Authorization: `Bearer ${res.data.token}`,
+        } as CommonHeaderProperties;
+        console.log(res);
+        setShowModal(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setError(true);
+        setErrorMsg(err.response.data.message);
+      });
   };
 
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
+  const [errorMsg, setErrorMsg] = useState(null);
 
   return (
     <form
@@ -51,11 +72,10 @@ const ModalAuth = ({ setShowModal }: ModalProps) => {
           label="Пароль"
           value={password}
           setValue={setPassword}
+          type="password"
         />
       </div>
-      {error && (
-        <Alert variant="danger-outline">Неправильный логин или пароль</Alert>
-      )}
+      {error && errorMsg && <Alert variant="danger-outline">{errorMsg}</Alert>}
       <Button disabled={false} text="Войти" variant="primary" />
       <Link
         onClick={() => setShowModal(false)}
