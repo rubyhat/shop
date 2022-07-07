@@ -35,6 +35,10 @@ class UserController {
 
   async login(req, res, next) {
     const { login, password } = req.body;
+    if (!login || !password) {
+      return next(ApiError.badRequest("Пустой логин или пароль"));
+    }
+
     const user = await User.findOne({ where: { login } });
 
     if (!user) {
