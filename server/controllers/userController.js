@@ -4,42 +4,42 @@ const jwt = require("jsonwebtoken");
 const ApiError = require("../errors/ApiError");
 const { User, Basket } = require("../models");
 
-const generateToken = (id, email, role) => {
-  return jwt.sign({ id, email, role }, process.env.SECRET_KEY, {
+const generateToken = (id, login, role) => {
+  return jwt.sign({ id, login, role }, process.env.SECRET_KEY, {
     expiresIn: "24h",
   });
 };
 
 class UserController {
   async reg(req, res, next) {
-    const { email, password, role } = req.body;
-    if (!email || !password) {
-      return next(ApiError.badRequest("Пустой e-mail или пароль"));
+    const { login, password, role } = req.body;
+    if (!login || !password) {
+      return next(ApiError.badRequest("Пустой логин или пароль"));
     }
 
-    const candidate = await User.findOne({ where: { email } });
+    const candidate = await User.findOne({ where: { login } });
 
     if (candidate) {
       return next(
-        ApiError.badRequest("Пользователь с таким e-mail уже существует")
+        ApiError.badRequest("Пользователь с таким логином уже существует")
       );
     }
 
     const hashPassword = await bcrypt.hash(password, 5);
-    const user = await User.create({ email, role, password: hashPassword });
+    const user = await User.create({ login, role, password: hashPassword });
     const basket = await Basket.create({ userId: user.id });
-    const token = generateToken(user.id, user.email, user.role);
+    const token = generateToken(user.id, user.login, user.role);
 
     return res.json({ token });
   }
 
   async login(req, res, next) {
-    const { email, password } = req.body;
-    const user = await User.findOne({ where: { email } });
+    const { login, password } = req.body;
+    const user = await User.findOne({ where: { login } });
 
     if (!user) {
       return next(
-        ApiError.badRequest("Пользователя с таким e-mail не существует")
+        ApiError.badRequest("Пользователя с таким логином не существует")
       );
     }
 
@@ -48,13 +48,18 @@ class UserController {
     if (!comparePassword) {
       return next(ApiError.badRequest("Неверный пароль"));
     }
-    const token = generateToken(user.id, user.email, user.role);
+    const token = generateToken(user.id, user.login, user.role);
     return res.json({ token });
   }
 
   async check(req, res, next) {
-    const token = generateToken(req.user.id, req.user.email, req.user.role);
+    const token = generateToken(req.user.id, req.user.login, req.user.role);
     res.json({ token });
+  }
+
+  async getAll(req, res, next) {
+    const users = await User.findAll();
+    return res.json(users);
   }
 }
 
