@@ -1,4 +1,6 @@
 import classNames from "classnames/bind";
+import { useState } from "react";
+import Input from "../Helpers/Input";
 import styles from "./modalAuth.module.scss";
 
 interface ModalProps {
@@ -9,20 +11,40 @@ const ModalAuth = ({ setShowModal }: ModalProps) => {
   const cn = classNames.bind(styles);
   const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log("yep");
   };
 
+  const [login, setLogin] = useState("");
+  const [password, setPassword] = useState("");
+
   return (
-    <form onSubmit={(event) => handleFormSubmit(event)}>
-      <button onClick={() => setShowModal(false)}>X</button>
-      <h3>Авторизация</h3>
-      <div className="input-block">
-        <label htmlFor="">Логин</label>
-        <input type="text" />
+    <form
+      className={cn("modal-auth")}
+      onSubmit={(event) => handleFormSubmit(event)}
+    >
+      <div className={cn("modal__header")}>
+        <h3>Вход</h3>
+        <button
+          className={cn("modal__button_close")}
+          onClick={() => setShowModal(false)}
+        >
+          X
+        </button>
       </div>
-      <div className="input-block">
-        <label htmlFor="">Пароль</label>
-        <input type="password" />
+      <div className={cn("input-block")}>
+        <Input
+          placeholder="Номер телефона"
+          label="Номер телефона"
+          value={login}
+          setValue={setLogin}
+        />
+      </div>
+      <div className={cn("input-block")}>
+        <Input
+          placeholder="Пароль"
+          label="Пароль"
+          value={password}
+          setValue={setPassword}
+        />
       </div>
       <button type="submit">Войти</button>
     </form>

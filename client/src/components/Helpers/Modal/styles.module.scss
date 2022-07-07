@@ -9,10 +9,14 @@
   align-items: center;
   justify-content: center;
   background-color: rgba(0, 0, 0, 50%);
+  padding: 1rem;
 }
 
 .modal {
   background-color: var(--white);
   border-radius: 0.25rem;
   padding: 1.5rem;
+  h3 {
+    color: var(--dark);
+  }
 }

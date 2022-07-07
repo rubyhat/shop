@@ -1,0 +1,23 @@
+.modal-auth {
+  width: 400px;
+}
+
+.input-block {
+  padding: 0.5rem 0;
+}
+
+.modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal__button_close {
+  background-color: #fff;
+  pad: 0.5rem;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--accent);
+  border: none;
+  cursor: pointer;
+}
