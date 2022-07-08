@@ -1,8 +1,10 @@
 import axios from "axios";
 import classNames from "classnames/bind";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { CREATE_USER_URL } from "../../Constants";
 import Button from "../Helpers/Button";
+import Checkbox from "../Helpers/Checkbox";
 import Input from "../Helpers/Input";
 import { Container, Row, Col } from "../Helpers/Layout";
 import Modal from "../Helpers/Modal";
@@ -18,6 +20,7 @@ const Registration = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
 
   const normalizeString = (name: string) =>
     name
@@ -135,7 +138,14 @@ const Registration = () => {
             </Col>
           </Row>
           <Row>
-            <Col></Col>
+            <Col>
+              <Checkbox isChecked={isChecked} setIsChecked={setIsChecked}>
+                <p>Я согласен c условиями&nbsp;</p>
+                <Link to="/" className="link">
+                  политики конфиденциальности
+                </Link>
+              </Checkbox>
+            </Col>
           </Row>
           <Row>
             <Col>
@@ -144,6 +154,7 @@ const Registration = () => {
                   type="submit"
                   text="Зарегистрироваться"
                   variant="primary"
+                  disabled={!isChecked}
                 />
               </div>
             </Col>
