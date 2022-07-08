@@ -1,11 +1,12 @@
 import axios from "axios";
 import classNames from "classnames/bind";
-import { stringify } from "querystring";
 import { useState } from "react";
 import { CREATE_USER_URL } from "../../Constants";
 import Button from "../Helpers/Button";
 import Input from "../Helpers/Input";
 import { Container, Row, Col } from "../Helpers/Layout";
+import Modal from "../Helpers/Modal";
+import ModalSuccess from "./ModalSuccess";
 
 import styles from "./styles.module.scss";
 
@@ -16,6 +17,7 @@ const Registration = () => {
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
 
   const normalizeString = (name: string) =>
     name
@@ -40,6 +42,7 @@ const Registration = () => {
     };
 
     console.log(data);
+    setShowSuccessModal(true);
 
     // axios({
     //   url: CREATE_USER_URL,
@@ -56,6 +59,11 @@ const Registration = () => {
 
   return (
     <section className={cn("registration")}>
+      {showSuccessModal && (
+        <Modal className="modal-success">
+          <ModalSuccess />
+        </Modal>
+      )}
       <form onSubmit={(event) => handleSubmitForm(event)}>
         <Container>
           <Row>
