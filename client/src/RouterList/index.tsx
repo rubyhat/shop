@@ -2,6 +2,7 @@ import { FC } from "react";
 import { Route, Routes } from "react-router-dom";
 import Hero from "../components/Hero";
 import Registration from "../components/Registration";
+import Page404 from "../pages/page404";
 import ProtectedRoute from "./ProtectedRoute";
 
 const RouterList: FC = () => {
@@ -12,7 +13,7 @@ const RouterList: FC = () => {
   };
   return (
     <Routes>
-      {/* <Route path="*" element={<Page404 />} /> */}
+      <Route path="*" element={<Page404 />} />
       {/* <Route exact path="/no-auth" element={<NoAuth />} /> */}
       <Route path="/" element={<Hero />} />
       <Route path="/registration" element={<Registration />} />
