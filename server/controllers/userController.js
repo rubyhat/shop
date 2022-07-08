@@ -12,8 +12,8 @@ const generateToken = (id, login, role) => {
 
 class UserController {
   async reg(req, res, next) {
-    const { login, password, role } = req.body;
-    if (!login || !password) {
+    const { login, password, role, phone, name, fio, email } = req.body;
+    if (!login || !password || !phone) {
       return next(ApiError.badRequest("Пустой логин или пароль"));
     }
 
@@ -26,9 +26,24 @@ class UserController {
     }
 
     const hashPassword = await bcrypt.hash(password, 5);
-    const user = await User.create({ login, role, password: hashPassword });
+    const user = await User.create({
+      login,
+      role,
+      password: hashPassword,
+      phone,
+      name,
+      fio,
+      email,
+    });
     const basket = await Basket.create({ userId: user.id });
-    const token = generateToken(user.id, user.login, user.role);
+    const token = generateToken(
+      user.id,
+      user.login,
+      user.role,
+      user.phone,
+      user.email,
+      user.fio
+    );
 
     return res.json({ token });
   }

@@ -1,17 +1,26 @@
 .input {
   width: 100%;
-  max-width: 400px;
   position: relative;
+}
+
+.label,
+.input-hint {
+  font-size: 10px;
+  line-height: 12px;
+  color: var(--black-50);
+}
+
+.input-hint {
+  margin-top: 0.25rem;
+  margin-bottom: 0.5rem;
+  margin-left: 0.25rem;
 }
 
 .label {
   position: absolute;
   left: 6px;
   top: -5px;
-  font-size: 10px;
-  line-height: 12px;
   padding: 0 4px;
-  color: var(--black-50);
   background-color: var(--white);
   opacity: 0;
   pointer-events: none;

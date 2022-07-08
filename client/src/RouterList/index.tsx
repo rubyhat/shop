@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { Route, Routes } from "react-router-dom";
 import Hero from "../components/Hero";
+import Registration from "../components/Registration";
 import ProtectedRoute from "./ProtectedRoute";
 
 const RouterList: FC = () => {
@@ -14,6 +15,7 @@ const RouterList: FC = () => {
       {/* <Route path="*" element={<Page404 />} /> */}
       {/* <Route exact path="/no-auth" element={<NoAuth />} /> */}
       <Route path="/" element={<Hero />} />
+      <Route path="/registration" element={<Registration />} />
       <Route
         path="/test"
         element={

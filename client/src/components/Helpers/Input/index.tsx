@@ -3,11 +3,13 @@ import styles from "./styles.module.scss";
 
 interface IInput {
   value: string;
-  setValue: (value: string) => void;
+  setValue: (value: any) => void;
   label?: string;
   type?: string;
   placeholder?: string;
   className?: string;
+  callback?: (value: string) => void;
+  hint?: string;
 }
 
 const Input = ({
@@ -17,11 +19,15 @@ const Input = ({
   type,
   placeholder,
   className,
+  callback,
+  hint,
 }: IInput) => {
   const cn = classNames.bind(styles);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(event.target.value);
+    callback
+      ? setValue(callback(event.target.value))
+      : setValue(event.target.value);
   };
 
   const rootClasses = className
@@ -41,6 +47,7 @@ const Input = ({
         value={value}
         onChange={(event) => handleInputChange(event)}
       />
+      {hint && <p className={cn("input-hint")}>{hint}</p>}
     </div>
   );
 };

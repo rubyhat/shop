@@ -2,6 +2,7 @@ import axios, { HeadersDefaults } from "axios";
 import classNames from "classnames/bind";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { LOGIN_USER_URL } from "../../Constants";
 import Alert from "../Helpers/Alert";
 import Button from "../Helpers/Button";
 import Input from "../Helpers/Input";
@@ -16,7 +17,7 @@ const ModalAuth = ({ setShowModal }: ModalProps) => {
   const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     axios({
-      url: "http://localhost:3001/api/user/login",
+      url: LOGIN_USER_URL,
       method: "POST",
       data: { login, password },
     })
@@ -80,7 +81,7 @@ const ModalAuth = ({ setShowModal }: ModalProps) => {
       <Link
         onClick={() => setShowModal(false)}
         className={cn("modal__link", "link")}
-        to="/"
+        to="/registration"
       >
         Нет аккаунта?
       </Link>
